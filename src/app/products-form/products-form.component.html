@@ -1,0 +1,9 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <div>
+    <input type="text" placeholder="title" formControlName="title">
+    <button type="submit">{{isAction ? 'Edit' : 'Add'}}</button>
+  </div>
+  <span class="form-error"
+    *ngIf="productForm.get('title')?.hasError('required') && productForm.get('title')?.touched">Title is
+    required</span>
+</form>

@@ -1,0 +1,34 @@
+<!-- <ul *ngFor="let todo of todoList">
+  <li>{{todo.title}}</li>
+  <li>
+    <button type="button" (click)="handleControl(todo, 'edit')">Edit</button>
+    <button type="button" (click)="handleControl(todo, 'delete')">Delete</button>
+  </li>
+</ul> -->
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let toto">{{toto.id}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef>Title</th>
+    <td mat-cell *matCellDef="let toto">{{toto.title}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Actions</th>
+    <td mat-cell *matCellDef="let toto">
+      <div class="example-button-row">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+          (click)="handleControl(toto, 'edit')">Edit</button>
+        <button class="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+          (click)="handleControl(toto, 'delete')">Delete</button>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

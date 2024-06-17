@@ -1,0 +1,7 @@
+<ul *ngFor="let item of items">
+  <li>{{item.title}}</li>
+  <li>
+    <button type="button" (click)="handleEditProduct(item.id)">Edit</button>
+    <button type="button" (click)="handleDeleteProduct(item.id)">Delete</button>
+  </li>
+</ul>
